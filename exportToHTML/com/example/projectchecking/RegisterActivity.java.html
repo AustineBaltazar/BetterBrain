@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>RegisterActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+RegisterActivity.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.projectchecking</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">androidx.annotation.MainThread</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">androidx.annotation.NonNull</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">androidx.appcompat.app.AppCompatActivity</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">android.content.Intent</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.os.Bundle</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.util.Log</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.view.View</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.Button</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.EditText</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.TextView</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.Toast</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">com.google.android.gms.tasks.OnCompleteListener</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.google.android.gms.tasks.Task</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.google.firebase.auth.AuthResult</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.google.firebase.auth.FirebaseAuth</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.google.firebase.database.FirebaseDatabase</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">RegisterActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity {</span>
+
+    <span class="s0">private </span><span class="s1">FirebaseAuth mAuth</span><span class="s0">;</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span><span class="s0">;</span>
+        <span class="s1">setContentView(R.layout.activity_register)</span><span class="s0">;</span>
+
+        <span class="s1">mAuth = FirebaseAuth.getInstance()</span><span class="s0">;</span>
+        <span class="s0">if </span><span class="s1">(mAuth.getCurrentUser()!= </span><span class="s0">null</span><span class="s1">){</span>
+            <span class="s1">finish()</span><span class="s0">;</span>
+            <span class="s0">return;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">Button btnReg = findViewById(R.id.RegBtn)</span><span class="s0">;</span>
+        <span class="s1">btnReg.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View view) {</span>
+                <span class="s1">registeruser()</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+        <span class="s1">Button btnRegister = findViewById(R.id.Loginbtn)</span><span class="s0">;</span>
+        <span class="s1">btnRegister.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View view) {</span>
+                <span class="s1">switchToLogin()</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+    <span class="s0">private void </span><span class="s1">registeruser(){</span>
+        <span class="s1">EditText FN = findViewById(R.id.FN)</span><span class="s0">;</span>
+        <span class="s1">EditText LN = findViewById(R.id.LN)</span><span class="s0">;</span>
+        <span class="s1">EditText EM = findViewById(R.id.EM)</span><span class="s0">;</span>
+        <span class="s1">EditText PW = findViewById(R.id.PW)</span><span class="s0">;</span>
+
+        <span class="s1">String fN = FN.getText().toString()</span><span class="s0">;</span>
+        <span class="s1">String lN = LN.getText().toString()</span><span class="s0">;</span>
+        <span class="s1">String eM = EM.getText().toString()</span><span class="s0">;</span>
+        <span class="s1">String pW = PW.getText().toString()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(fN.isEmpty() || lN.isEmpty() || eM.isEmpty() || pW.isEmpty()){</span>
+            <span class="s1">Toast.makeText(</span><span class="s0">this, </span><span class="s2">&quot;Fill all the fields&quot;</span><span class="s0">, </span><span class="s1">Toast.LENGTH_LONG).show()</span><span class="s0">;</span>
+            <span class="s0">return;</span>
+        <span class="s1">}</span>
+        <span class="s1">mAuth.createUserWithEmailAndPassword(eM</span><span class="s0">, </span><span class="s1">pW)</span>
+                <span class="s1">.addOnCompleteListener(</span><span class="s0">this, new </span><span class="s1">OnCompleteListener&lt;AuthResult&gt;() {</span>
+                    <span class="s1">@Override</span>
+                    <span class="s0">public void </span><span class="s1">onComplete(@NonNull Task&lt;AuthResult&gt; task) {</span>
+                        <span class="s0">if </span><span class="s1">(task.isSuccessful()) {</span>
+                            <span class="s1">Users users = </span><span class="s0">new </span><span class="s1">Users(fN</span><span class="s0">, </span><span class="s1">lN</span><span class="s0">, </span><span class="s1">eM)</span><span class="s0">;</span>
+                            <span class="s1">FirebaseDatabase.getInstance().getReference(</span><span class="s2">&quot;users&quot;</span><span class="s1">)</span>
+                                    <span class="s1">.child(FirebaseAuth.getInstance().getCurrentUser().getUid())</span>
+                                    <span class="s1">.setValue(users).addOnCompleteListener(</span><span class="s0">new </span><span class="s1">OnCompleteListener&lt;Void&gt;() {</span>
+                                        <span class="s1">@Override</span>
+                                        <span class="s0">public void </span><span class="s1">onComplete(@NonNull Task&lt;Void&gt; task) {</span>
+                                            <span class="s1">showMainMenu()</span><span class="s0">;</span>
+                                        <span class="s1">}</span>
+                                    <span class="s1">})</span><span class="s0">;</span>
+                        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+                            <span class="s1">Toast.makeText(RegisterActivity.</span><span class="s0">this,</span><span class="s2">&quot;Authentication Failed&quot;</span><span class="s0">,</span><span class="s1">Toast.LENGTH_LONG).show()</span><span class="s0">;</span>
+
+                        <span class="s1">}</span>
+                    <span class="s1">}</span>
+                <span class="s1">})</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+    <span class="s0">private void </span><span class="s1">showMainMenu(){</span>
+        <span class="s1">Intent intent = </span><span class="s0">new </span><span class="s1">Intent(</span><span class="s0">this, </span><span class="s1">MainMenu.</span><span class="s0">class</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">startActivity(intent)</span><span class="s0">;</span>
+        <span class="s1">finish()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">private void </span><span class="s1">switchToLogin(){</span>
+        <span class="s1">Intent intent = </span><span class="s0">new </span><span class="s1">Intent(</span><span class="s0">this,</span><span class="s1">LoginActivity.</span><span class="s0">class</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">startActivity(intent)</span><span class="s0">;</span>
+        <span class="s1">finish()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

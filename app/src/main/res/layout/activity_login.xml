@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/visualGamesLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/gamebg4" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/Regtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="156dp"
+            android:layout_marginTop="129dp"
+            android:layout_marginEnd="157dp"
+            android:fontFamily="sans-serif-black"
+            android:text="LOGIN"
+            android:textColor="#976D6D"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/LgName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:ems="10"
+            android:hint="Email:"
+            android:inputType="textPersonName"
+            android:textColor="#976D6D"
+            app:layout_constraintEnd_toEndOf="@+id/Regtxt"
+            app:layout_constraintStart_toStartOf="@+id/Regtxt"
+            app:layout_constraintTop_toBottomOf="@+id/Regtxt" />
+
+        <EditText
+            android:id="@+id/LgPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:ems="10"
+            android:hint="Password:"
+            android:inputType="textPersonName"
+            android:textColor="#976D6D"
+            app:layout_constraintEnd_toEndOf="@+id/LgName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/LgName"
+            app:layout_constraintTop_toBottomOf="@+id/LgName" />
+
+        <Button
+            android:id="@+id/Loginbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="296dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="16dp"
+            android:background="@null"
+            android:backgroundTint="#00292828"
+            android:text="Register"
+            android:textColor="#6C6969"
+            android:textStyle="bold"
+            app:cornerRadius="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/RegBtn" />
+
+        <Button
+            android:id="@+id/RegBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:background="@null"
+            android:backgroundTint="#00292828"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:text="Log in"
+            android:textColor="#6C6969"
+            android:textStyle="bold"
+            app:cornerRadius="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/LgPassword"
+            app:layout_constraintStart_toStartOf="@+id/LgPassword"
+            app:layout_constraintTop_toBottomOf="@+id/LgPassword" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>
+
+
+

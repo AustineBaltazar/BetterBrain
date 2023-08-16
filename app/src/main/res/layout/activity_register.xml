@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/visualGamesLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/gamebg4" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/Regtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="156dp"
+            android:layout_marginTop="84dp"
+            android:layout_marginEnd="157dp"
+            android:fontFamily="sans-serif-black"
+            android:text="REGISTER"
+            android:textColor="#976D6D"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/FN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="41dp"
+            android:ems="10"
+            android:hint="First Name:"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/Regtxt"
+            app:layout_constraintStart_toStartOf="@+id/Regtxt"
+            app:layout_constraintTop_toBottomOf="@+id/Regtxt" />
+
+        <EditText
+            android:id="@+id/LN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:hint="Last Name:"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/FN"
+            app:layout_constraintTop_toBottomOf="@+id/FN" />
+
+        <EditText
+            android:id="@+id/EM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:hint="Email:"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/LN"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/LN"
+            app:layout_constraintTop_toBottomOf="@+id/LN" />
+
+        <EditText
+            android:id="@+id/PW"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:hint="Password:"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/EM"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/EM"
+            app:layout_constraintTop_toBottomOf="@+id/EM" />
+
+        <Button
+            android:id="@+id/RegBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="57dp"
+            android:background="@null"
+            android:backgroundTint="#00292828"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:text="Register"
+            android:textColor="#6C6969"
+            android:textStyle="bold"
+            app:cornerRadius="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/PW"
+            app:layout_constraintStart_toStartOf="@+id/PW"
+            app:layout_constraintTop_toBottomOf="@+id/PW" />
+
+        <Button
+            android:id="@+id/Loginbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="144dp"
+            android:layout_marginTop="32dp"
+            android:background="@null"
+            android:backgroundTint="#00292828"
+            android:text="Login"
+            android:textColor="#6C6969"
+            android:textStyle="bold"
+            app:cornerRadius="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/PW"
+            app:layout_constraintHorizontal_bias="0.428"
+            app:layout_constraintStart_toStartOf="@+id/RegBtn"
+            app:layout_constraintTop_toBottomOf="@+id/RegBtn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>
+
+
+

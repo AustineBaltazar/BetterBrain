@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MatchingGameActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/matchbg" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/matchTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="00:00"
+            android:textSize="40sp"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:id="@+id/matchScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/matchTimer"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text=""
+            android:textSize="30sp" />
+
+
+        <GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="350dp"
+            android:layout_height="400dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="176dp"
+            android:columnCount="4"
+            android:rowCount="4"
+            tools:context=".MatchingGameActivity">
+
+
+        </GridLayout>
+
+        <Button
+            android:id="@+id/retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gridLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:background="@null"
+            android:backgroundTint="#C6F48383"
+            android:text="Play again"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:cornerRadius="30dp" />
+
+    </RelativeLayout>
+
+</FrameLayout>

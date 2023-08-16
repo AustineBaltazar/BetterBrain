@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "358958476882",
+    "firebase_url": "https://projectcheckingpractice-default-rtdb.firebaseio.com",
+    "project_id": "projectcheckingpractice",
+    "storage_bucket": "projectcheckingpractice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:358958476882:android:7ad35b234d5558e852398b",
+        "android_client_info": {
+          "package_name": "com.example.projectchecking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "358958476882-elb91no2f7nju1n4fb90np0v4aqedceo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGLTpZg2gmpFbdl-0ewTZ1AcOVBlhmSjM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "358958476882-elb91no2f7nju1n4fb90np0v4aqedceo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ProjectChecking</string>
+    <string name="lvl1_msg">Guess the number between 0 to 5</string>
+    <string name="lvl2_msg">Guess the number between 0 to 10</string>
+    <string name="lvl3_msg">Guess the number between 0 to 15</string>
+    <string name="level_1">Level 1</string>
+    <string name="level_2">Level 2</string>
+    <string name="level_3">Level 3</string>
+    <string name="level_4">Level 4</string>
+    <string name="level_5">Level 5</string>
+    <string name="level_6">Level 6</string>
+    <string name="level_7">Level 7</string>
+    <string name="level_8">Level 8</string>
+    <string name="level_9">Level 9</string>
+    <string name="level_10">Level 10</string>
+    <string name="too_high">Too High!</string>
+    <string name="too_low">Too Low!</string>
+
+</resources>
